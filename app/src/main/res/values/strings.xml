@@ -4,4 +4,19 @@
     <string name="host">ns37269.ip-91-121-3.eu</string>
     <string name="port">3000</string>
     <string name="action_settings">Options</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <string name="hello_world">Hello world!</string>
+
+    <string name="rtc_server_setting">RTC Server Setting</string>
+    <string name="server_addr">Sever address:</string>
+    <string name="server_port">Server port:</string>
+    <string name="device_name">Device name:</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+
+    <string name="network">Network information</string>
+    <string name="no_network_connection">No network connection\n\nPlease enable device network\n\n</string>
+    <string name="ok">OK</string>
+
 </resources>
