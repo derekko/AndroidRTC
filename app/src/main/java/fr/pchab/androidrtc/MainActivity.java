@@ -9,10 +9,12 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 import java.util.zip.Inflater;
@@ -20,12 +22,32 @@ import java.util.zip.Inflater;
 
 public class MainActivity extends Activity {
 
+    private String TAG = "MainActivity";
+
     private Context mContext;
+
+    private Button startMyStreamButton;
+    private Button callOtherStreamButton;
+    private Button viewOtherStreamButton;
+    private Button refreshDataButton;
+
+    private ButtonClickListener buttonClickListener = new ButtonClickListener();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mContext = this;
-        //setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main);
+        startMyStreamButton = (Button) findViewById(R.id.start_my_stream_button);
+        callOtherStreamButton = (Button) findViewById(R.id.call_other_stream_button);
+        viewOtherStreamButton = (Button) findViewById(R.id.view_other_stream_button);
+        refreshDataButton = (Button) findViewById(R.id.refresh_data_button);
+
+        startMyStreamButton.setOnClickListener(buttonClickListener);
+        callOtherStreamButton.setOnClickListener(buttonClickListener);
+        viewOtherStreamButton.setOnClickListener(buttonClickListener);
+        refreshDataButton.setOnClickListener(buttonClickListener);
+
     }
 
     protected void onResume() {
@@ -61,6 +83,25 @@ public class MainActivity extends Activity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    class ButtonClickListener implements View.OnClickListener{
+        @Override
+        public void onClick(View v) {
+            if(v.getId() == R.id.start_my_stream_button){
+
+            }else if(v.getId() == R.id.call_other_stream_button){
+
+            }else if(v.getId() == R.id.view_other_stream_button){
+
+            }else if(v.getId() == R.id.refresh_data_button){
+
+            }else{
+                Log.d(TAG, "Unknown clicked");
+            }
+        }
+    };
+
+
     @SuppressLint("NewApi")
     public void showSettingsDialog(){
         AlertDialog.Builder dialog = new AlertDialog.Builder(this);

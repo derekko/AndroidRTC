@@ -19,4 +19,9 @@
     <string name="no_network_connection">No network connection\n\nPlease enable device network\n\n</string>
     <string name="ok">OK</string>
 
+    <string name="start_my_stream">Start my Stream</string>
+    <string name="call_other_stream">Call other stream</string>
+    <string name="view_other_stream">View other stream</string>
+    <string name="refresh_data">Refresh data</string>
+
 </resources>
