@@ -20,7 +20,7 @@ import android.widget.EditText;
 import java.util.zip.Inflater;
 
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements StreamInfo.StreamListener {
 
     private String TAG = "MainActivity";
 
@@ -32,6 +32,8 @@ public class MainActivity extends Activity {
     private Button refreshDataButton;
 
     private ButtonClickListener buttonClickListener = new ButtonClickListener();
+
+    private StreamInfo mStreamInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +50,7 @@ public class MainActivity extends Activity {
         viewOtherStreamButton.setOnClickListener(buttonClickListener);
         refreshDataButton.setOnClickListener(buttonClickListener);
 
+        mStreamInfo = new StreamInfo(this,mContext);
     }
 
     protected void onResume() {
@@ -84,6 +87,11 @@ public class MainActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onOver() {
+        Log.d(TAG, "Over~~~~~");
+    }
+
     class ButtonClickListener implements View.OnClickListener{
         @Override
         public void onClick(View v) {
@@ -94,7 +102,7 @@ public class MainActivity extends Activity {
             }else if(v.getId() == R.id.view_other_stream_button){
 
             }else if(v.getId() == R.id.refresh_data_button){
-
+                mStreamInfo.startGetStreamInfo();
             }else{
                 Log.d(TAG, "Unknown clicked");
             }
